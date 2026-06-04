@@ -1,5 +1,14 @@
 <?php
-
+    include 'config.php';
+    $sql = "SELECT theme_id name FROM themes";
+    $query = mysqli_query($conexion, $sql);
+    $lista_items = array();
+    if($query){
+        while ($fila =mysqli_fetch_assoc($query)){
+            $lista_temas[]= $fila;
+            
+        }
+    }
 ?>
 
 <!DOCTYPE html>
