@@ -2,11 +2,10 @@
     include 'config.php';
     $sql = "SELECT theme_id name FROM themes";
     $query = mysqli_query($conexion, $sql);
-    $lista_items = array();
+    $lista_temas = array();
     if($query){
         while ($fila =mysqli_fetch_assoc($query)){
             $lista_temas[]= $fila;
-
         }
     }
 ?>
@@ -50,14 +49,14 @@
                 <label>Tema del Set:</label>
                 <select name="theme_id" required>
                     <option value="">Selecciona un tema...</option>
-                    
+                  
                     <!-- PHP FOREACH --> 
                     <?php
-                        
-                        if (count($lista_temas)){
+                        if (count($lista_temas) > 0){
+    
                             foreach($lista_temas as $tema){
                                 $id_tema = $tema["theme_id"];
-                                echo "<option value = '$id_tema'>". $tema["name"] . "</option>";
+                                echo "<option value='$id_tema'>". $tema["name"] . "</option>";
                             }
                         }
                     ?>
