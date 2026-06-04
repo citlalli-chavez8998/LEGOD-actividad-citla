@@ -6,7 +6,7 @@
     if($query){
         while ($fila =mysqli_fetch_assoc($query)){
             $lista_temas[]= $fila;
-            
+
         }
     }
 ?>
@@ -53,7 +53,13 @@
                     
                     <!-- PHP FOREACH --> 
                     <?php
-                    
+                        
+                        if (count($lista_temas)){
+                            foreach($lista_temas as $tema){
+                                $id_tema = $tema["theme_id"];
+                                echo "<option value = '$id_tema'>". $tema["name"] . "</option>";
+                            }
+                        }
                     ?>
                 </select>
                 
