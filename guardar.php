@@ -10,16 +10,17 @@
         $num_parts= $_POST["num_parts"];
         $theme_id = $_POST["theme_id"];
         
-        $sql = "INSERT INTO sets (set_num, name,year, num_parts, theme_id) VALUES ($set_num, $name, $year, $num_parts,  $theme_id)";
-        echo "$sql";
-        $query = mysqli_query(connect(), $sql);
+        $sql = "INSERT INTO sets (set_num, name, year, num_parts, theme_id) 
+        VALUES ('$set_num', '$name', $year, $num_parts,  $theme_id)";
+
+        $query = mysqli_query($conexion, $sql);
         if ($query){
             $mensaje = "La creación fue correcta";
-            $clase_mensaje = "mensaje - exito";
+            $clase_mensaje = "mensaje-exito";
         }
-        else ($query){
+        else{
             $mensaje = "La creación fue NO correcta";
-            $clase_mensaje = "mensaje - error";
+            $clase_mensaje = "mensaje-error";
         }
     }
 ?>
